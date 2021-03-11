@@ -4,13 +4,15 @@ import {
   Text,
   SafeAreaView,
   StyleSheet,
-  Image,
+  Image, 
   TouchableOpacity,
   StatusBar,
   Platform,
 } from 'react-native';
 import {images, theme} from '../constants';
-import Icon from 'react-native-vector-icons/Ionicons';
+
+import {icons} from '../constants/tabConstants';
+
 
 // theme
 const {COLORS, FONTS, SIZES} = theme;
@@ -48,7 +50,15 @@ const GetStartedScreen = ({navigation}) => {
         </View>
         <View style={styles.buttonView}>
           <TouchableOpacity style={styles.googlebtn}>
-            <Icon name="logo-google" size={20} color="#0040c1" />
+            <Image
+              source={icons.google}
+              resizeMode="contain"
+              style={{
+                width: 20,
+                height: 20,
+                tintColor:  COLORS.appcolor,
+              }}
+            />
             <Text style={styles.googleText}>Sign In with Google</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.createbtn}  onPress={() => navigation.navigate('SignUp')}>

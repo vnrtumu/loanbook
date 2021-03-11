@@ -9,11 +9,12 @@ import {
   Platform,
   StyleSheet,
   StatusBar,
+  Image,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Feather from 'react-native-vector-icons/Feather';
+
+import {COLORS, icons} from '../constants/tabConstants';
 
 const SignUpScreen = ({navigation}) => {
   const [data, setData] = React.useState({
@@ -74,14 +75,30 @@ const SignUpScreen = ({navigation}) => {
       <StatusBar backgroundColor="#0040c1" barStyle="light-content" />
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <FontAwesome name="long-arrow-left" color="#fff" size={20} />
+          <Image
+            source={icons.leftArrow}
+            resizeMode="contain"
+            style={{
+              width: 20,
+              height: 20,
+              tintColor: '#fff',
+            }}
+          />
         </TouchableOpacity>
         <Text style={styles.text_header}>Register Now!</Text>
       </View>
       <Animatable.View animation="fadeInUpBig" style={styles.footer}>
         <Text style={styles.text_footer}>Username</Text>
         <View style={styles.action}>
-          <FontAwesome name="user-o" color="#05375a" size={20} />
+          <Image
+            source={icons.user}
+            resizeMode="contain"
+            style={{
+              width: 20,
+              height: 20,
+              tintColor: '#05375a',
+            }}
+          />
           <TextInput
             placeholder="Your Username"
             style={styles.textInput}
@@ -90,7 +107,15 @@ const SignUpScreen = ({navigation}) => {
           />
           {data.check_textInputChange ? (
             <Animatable.View animation="bounceIn">
-              <Feather name="check-circle" color="green" size={20} />
+              <Image
+                source={icons.checked}
+                resizeMode="contain"
+                style={{
+                  width: 20,
+                  height: 20,
+                  tintColor: 'green',
+                }}
+              />
             </Animatable.View>
           ) : null}
         </View>
@@ -105,7 +130,15 @@ const SignUpScreen = ({navigation}) => {
           Password
         </Text>
         <View style={styles.action}>
-          <Feather name="lock" color="#05375a" size={20} />
+          <Image
+            source={icons.lock}
+            resizeMode="contain"
+            style={{
+              width: 20,
+              height: 20,
+              tintColor: '#05375a',
+            }}
+          />
           <TextInput
             placeholder="Your Password"
             secureTextEntry={data.secureTextEntry ? true : false}
@@ -115,9 +148,17 @@ const SignUpScreen = ({navigation}) => {
           />
           <TouchableOpacity onPress={updateSecureTextEntry}>
             {data.secureTextEntry ? (
-              <Feather name="eye-off" color="grey" size={20} />
+              <Image
+                source={icons.visibility}
+                resizeMode="contain"
+                style={{width: 25, height: 25, tintColor: 'grey'}}
+              />
             ) : (
-              <Feather name="eye" color="grey" size={20} />
+              <Image
+                source={icons.eye}
+                resizeMode="contain"
+                style={{width: 25, height: 25, tintColor: 'grey'}}
+              />
             )}
           </TouchableOpacity>
         </View>
@@ -132,7 +173,15 @@ const SignUpScreen = ({navigation}) => {
           Confirm Password
         </Text>
         <View style={styles.action}>
-          <Feather name="lock" color="#05375a" size={20} />
+          <Image
+            source={icons.lock}
+            resizeMode="contain"
+            style={{
+              width: 20,
+              height: 20,
+              tintColor: '#05375a',
+            }}
+          />
           <TextInput
             placeholder="Confirm Your Password"
             secureTextEntry={data.confirm_secureTextEntry ? true : false}
@@ -142,9 +191,17 @@ const SignUpScreen = ({navigation}) => {
           />
           <TouchableOpacity onPress={updateConfirmSecureTextEntry}>
             {data.secureTextEntry ? (
-              <Feather name="eye-off" color="grey" size={20} />
+              <Image
+                source={icons.visibility}
+                resizeMode="contain"
+                style={{width: 25, height: 25, tintColor: 'grey'}}
+              />
             ) : (
-              <Feather name="eye" color="grey" size={20} />
+              <Image
+                source={icons.eye}
+                resizeMode="contain"
+                style={{width: 25, height: 25, tintColor: 'grey'}}
+              />
             )}
           </TouchableOpacity>
         </View>
