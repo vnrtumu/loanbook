@@ -1,70 +1,38 @@
-import React from 'react';
-import {View, Image, TouchableOpacity} from 'react-native';
+import React from "react";
+import { View, Image, TouchableOpacity, Text, StyleSheet } from "react-native";
 import {
   createBottomTabNavigator,
   BottomTabBar,
-} from '@react-navigation/bottom-tabs';
-import Svg, {Path} from 'react-native-svg';
+} from "@react-navigation/bottom-tabs";
 
-import HomeScreen from '../screens/HomeScreen';
-import CreateContact from '../screens/CreateContact';
-import BorrowedContact from '../screens/BorrowedContact';
-import LendedContact from '../screens/LendedContact';
+import { Home } from "../screens";
+import { COLORS, FONTS, icons } from "../constants";
+import StackNav from './StackNav'
 
-import {COLORS, icons} from '../constants/tabConstants';
+
+
+import LinearGradient from "react-native-linear-gradient";
 
 const Tab = createBottomTabNavigator();
 
-const TabBarCustomButton = ({accessibilityState, children, onPress}) => {
-  var isSelected = accessibilityState.selected;
-
-  if (isSelected) {
-    return (
-      <View style={{flex: 1, alignItems: 'center'}}>
-        <View style={{flexDirection: 'row', position: 'absolute', top: 0}}>
-          <View style={{flex: 1, backgroundColor: COLORS.white}}></View>
-          <Svg width={75} height={61} viewBox="0 0 75 61">
-            <Path
-              d="M75.2 0v61H0V0c4.1 0 7.4 3.1 7.9 7.1C10 21.7 22.5 33 37.7 33c15.2 0 27.7-11.3 29.7-25.9.5-4 3.9-7.1 7.9-7.1h-.1z"
-              fill={COLORS.white}
-            />
-          </Svg>
-          <View style={{flex: 1, backgroundColor: COLORS.white}}></View>
-        </View>
-
-        <TouchableOpacity
-          style={{
-            top: -22.5,
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: 50,
-            height: 50,
-            borderRadius: 25,
-            backgroundColor: COLORS.white,
-          }}
-          onPress={onPress}>
+const TabBarCustomButton = ({ children, onPress }) => {
+  return (
+    <TouchableOpacity
+      style={{
+        top: -30,
+        justifyContent: "center",
+        alignItems: "center",
+        ...styles.shadow,
+      }}
+      onPress={onPress}
+    >
+      <LinearGradient 
+        colors={[COLORS.primary, COLORS.secondary]}
+         style={{ width: 70, height: 70, borderRadius: 35 }}>
           {children}
-        </TouchableOpacity>
-      </View>
-    );
-  } else {
-    return (
-      <TouchableOpacity
-        style={{
-          flex: 1,
-          height: 60,
-          backgroundColor: COLORS.white,
-        }}
-        activeOpacity={1}
-        onPress={onPress}>
-        {children}
-      </TouchableOpacity>
-    );
-  }
-};
-
-const CustomTabBar = (props) => {
-  return <BottomTabBar {...props.props} />;
+      </LinearGradient>
+    </TouchableOpacity>
+  );
 };
 
 const TabNav = () => {
@@ -73,93 +41,160 @@ const TabNav = () => {
       tabBarOptions={{
         showLabel: false,
         style: {
-          position: 'absolute',
-          left: 0,
+          position: "relative",
           bottom: 0,
+          top: 0,
           right: 0,
-          borderTopWidth: 0,
-          backgroundColor: 'transparent',
+          left: 0,
           elevation: 0,
+          backgroundColor: "#fff",
+          borderTopColor: "transparent",
+          height: 100,
         },
       }}
-      tabBar={(props) => <CustomTabBar props={props} />}>
+    >
       <Tab.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="Home"
+        component={StackNav}
         options={{
-          tabBarIcon: ({focused}) => (
-            <Image
-              source={icons.dashboard}
-              resizeMode="contain"
-              style={{
-                width: 25,
-                height: 25,
-                tintColor: focused ? COLORS.primary : COLORS.secondary,
-              }}
-            />
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: "center", justifyContent: "center" }}>
+              <Image
+                source={icons.home}
+                resizeMode="contain"
+                style={{
+                  width: 30,
+                  height: 30,
+                  tintColor: focused ? COLORS.primary : COLORS.black,
+                }}
+              />
+              <Text
+                style={{
+                  color: focused ? COLORS.primary : COLORS.black,
+                  ...FONTS.body5,
+                }}
+              >
+                HOME
+              </Text>
+            </View>
           ),
-          tabBarButton: (props) => <TabBarCustomButton {...props} />,
         }}
       />
-
       <Tab.Screen
-        name="Lend"
-        component={LendedContact}
+        name="Portfolio"
+        component={Home}
         options={{
-          tabBarIcon: ({focused}) => (
-            <Image 
-              source={icons.lend}
-              resizeMode="contain"
-              style={{
-                width: 25,
-                height: 25,
-                tintColor: focused ? COLORS.primary : COLORS.secondary,
-              }}
-            />
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: "center", justifyContent: "center" }}>
+              <Image
+                source={icons.pie_chart}
+                resizeMode="contain"
+                style={{
+                  width: 30,
+                  height: 30,
+                  tintColor: focused ? COLORS.primary : COLORS.black,
+                }}
+              />
+              <Text
+                style={{
+                  color: focused ? COLORS.primary : COLORS.black,
+                  ...FONTS.body5,
+                }}
+              >
+                PORTFOLIO
+              </Text>
+            </View>
           ),
-          tabBarButton: (props) => <TabBarCustomButton {...props} />,
         }}
       />
-
       <Tab.Screen
-        name="Borrow"
-        component={BorrowedContact}
+        name="Transaction"
+        component={Home}
         options={{
-          tabBarIcon: ({focused}) => (
-            <Image
-              source={icons.borrow}
-              resizeMode="contain"
-              style={{
-                width: 25,
-                height: 25,
-                tintColor: focused ? COLORS.primary : COLORS.secondary,
-              }}
-            />
-          ),
-          tabBarButton: (props) => <TabBarCustomButton {...props} />,
-        }}
-      />
-
-      <Tab.Screen
-        name="create"
-        component={CreateContact}
-        options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <Image
               source={icons.add}
               resizeMode="contain"
               style={{
-                width: 25,
-                height: 25,
-                tintColor: focused ? COLORS.primary : COLORS.secondary,
+                width: 30,
+                height: 30,
+                tintColor: COLORS.white,
               }}
             />
           ),
           tabBarButton: (props) => <TabBarCustomButton {...props} />,
+        }}
+      />
+      <Tab.Screen
+        name="Prices"
+        component={Home}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: "center", justifyContent: "center" }}>
+              <Image
+                source={icons.line_graph}
+                resizeMode="contain"
+                style={{
+                  width: 30,
+                  height: 30,
+                  tintColor: focused ? COLORS.primary : COLORS.black,
+                }}
+              />
+              <Text
+                style={{
+                  color: focused ? COLORS.primary : COLORS.black,
+                  ...FONTS.body5,
+                }}
+              >
+                PRICES
+              </Text>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={Home}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: "center", justifyContent: "center" }}>
+              <Image
+                source={icons.settings}
+                resizeMode="contain"
+                style={{
+                  width: 30,
+                  height: 30,
+                  tintColor: focused ? COLORS.primary : COLORS.black,
+                }}
+              />
+              <Text
+                style={{
+                  color: focused ? COLORS.primary : COLORS.black,
+                  ...FONTS.body5,
+                }}
+              >
+                SETTINGS
+              </Text>
+            </View>
+          ),
         }}
       />
     </Tab.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  shadow: {
+    shadowColor: COLORS.primary,
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+  },
+});
 
 export default TabNav;

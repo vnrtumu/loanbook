@@ -2,11 +2,19 @@ import {Dimensions} from 'react-native';
 const {width, height} = Dimensions.get('window');
 
 export const COLORS = {
-  black: '#1E1F20',
   white: '#FFFFFF',
   gray: '#6A6A6A',
   blue: '#0682FE',
   appcolor: '#0040c1',
+
+  primary: '#7F5DF0', // Light purple
+  secondary: '#5D2DFD', // Dark purple
+
+  black: '#000000',
+  green: '#37E39F',
+  red: '#F9A8BA',
+  lightGray: '#dbdbdb',
+  lightGray1: '#f5f6fa',
 };
 export const SIZES = {
   // global sizes
@@ -24,20 +32,21 @@ export const SIZES = {
   body2: 22,
   body3: 16,
   body4: 14,
-
   // app dimensions
   width,
   height,
 };
+
 export const FONTS = {
-  h1: {fontSize: SIZES.h1, lineHeight: 36},
+  h1: { fontSize: SIZES.h1, lineHeight: 36},
   h2: {fontSize: SIZES.h2, lineHeight: 30},
   h3: {fontSize: SIZES.h3, lineHeight: 22},
   h4: {fontSize: SIZES.h4, lineHeight: 22},
-  body1: {fontSize: SIZES.body1, lineHeight: 36},
-  body2: {fontSize: SIZES.body2, lineHeight: 30},
-  body3: {fontSize: SIZES.body3, lineHeight: 22},
-  body4: {fontSize: SIZES.body4, lineHeight: 22},
+  body1: { fontSize: SIZES.body1, lineHeight: 36},
+  body2: { fontSize: SIZES.body2, lineHeight: 30},
+  body3: { fontSize: SIZES.body3, lineHeight: 22},
+  body4: { fontSize: SIZES.body4, lineHeight: 22},
+  body5: { fontSize: SIZES.body5, lineHeight: 22},
 };
 
 const appTheme = {COLORS, SIZES, FONTS};
