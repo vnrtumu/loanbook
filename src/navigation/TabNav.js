@@ -5,7 +5,7 @@ import {
   BottomTabBar,
 } from "@react-navigation/bottom-tabs";
 
-import { Home } from "../screens";
+import { Home, CreateContact } from "../screens";
 import { COLORS, FONTS, icons } from "../constants";
 import StackNav from './StackNav'
 
@@ -108,8 +108,8 @@ const TabNav = () => {
         }}
       />
       <Tab.Screen
-        name="Transaction"
-        component={Home}
+        name="Contact"
+        component={CreateContact}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image

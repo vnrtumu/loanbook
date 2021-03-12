@@ -95,9 +95,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    // paddingLeft: 25,
     padding:  Platform.OS === 'ios' ? 25 : 10,
-
   },
   welcomeView: {
     flex: 1,

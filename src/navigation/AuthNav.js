@@ -14,6 +14,7 @@ import SignUpScreen from '../screens/SignUpScreen'
 import TabNav from './TabNav';
 
 
+
 const {COLORS, FONTS, SIZES} = theme;
 
 const Stack = createStackNavigator();
@@ -22,7 +23,7 @@ function AuthNav() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Splash"
+        initialRouteName="Dashboard"
         screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Onboard" component={OnBoarding} />

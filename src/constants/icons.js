@@ -22,6 +22,8 @@ const right_arrow = require('../assets/icons/right_arrow.png');
 const settings = require('../assets/icons/settings.png');
 const star = require('../assets/icons/star2.png');
 const transaction = require('../assets/icons/transaction.png');
+const camera = require('../assets/icons/camera.png');
+
 
 export default {
   back,
@@ -46,4 +48,5 @@ export default {
   settings,
   star,
   transaction,
+  camera
 };
