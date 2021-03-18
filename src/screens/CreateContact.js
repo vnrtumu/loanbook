@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -9,19 +9,48 @@ import {
   TouchableOpacity,
   StyleSheet,
   TextInput,
+  Button,
 } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
+
 import {dummyData, COLORS, SIZES, FONTS, icons, images} from '../constants';
 
 const CreateContact = () => {
+  const [date, setDate] = useState(new Date(1598051730000));
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+
+  
+
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.lightGray}}>
-      <View style={{paddingHorizontal: SIZES.padding, flexDirection: 'row'}}>
-        <View styl={{flex: 1, alignItems: 'flex-start'}}>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: COLORS.white,
+      }}>
+      <View
+        style={{
+          paddingHorizontal: SIZES.padding,
+          flexDirection: 'row',
+        }}>
+        <View
+          styl={{
+            flex: 1,
+            alignItems: 'flex-start',
+          }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
             <Image
               source={icons.add}
               resizeMode="contain"
-              style={{width: 25, height: 25, tintColor: COLORS.black}}
+              style={{
+                width: 25,
+                height: 25,
+                tintColor: COLORS.black,
+              }}
             />
             <Text
               style={{
@@ -34,7 +63,6 @@ const CreateContact = () => {
           </View>
         </View>
       </View>
-
       <ScrollView>
         <View
           style={{
@@ -43,24 +71,30 @@ const CreateContact = () => {
             marginTop: SIZES.padding * 2,
           }}>
           {/* Image upload Section */}
-          <View style={{alignItems: 'center'}}>
+          <View
+            style={{
+              alignItems: 'center',
+            }}>
             <TouchableOpacity
               style={{
                 width: 100,
                 height: 100,
                 borderRadius: 50,
-                backgroundColor: COLORS.primary,
+                backgroundColor: COLORS.secondary,
                 padding: 3,
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
               <Image
                 source={icons.camera}
-                style={{width: 60, height: 60, borderRadius: 25}}
+                style={{
+                  width: 60,
+                  height: 60,
+                  borderRadius: 25,
+                }}
               />
             </TouchableOpacity>
           </View>
-
           <View
             style={{
               marginTop: SIZES.padding,
@@ -71,38 +105,124 @@ const CreateContact = () => {
               ...styles.shadow,
             }}>
             <TextInput
-              style={{height: 40}}
-              placeholder="Type here to translate!"
-            />
-            <Text style={{color: COLORS.white, ...FONTS.h3}}>
-              Investing Saftey
-            </Text>
-            <Text
               style={{
-                marginTop: SIZES.base,
+                height: 40,
+                borderBottomWidth: 1,
+                borderBottomColor: COLORS.white,
                 color: COLORS.white,
-                ...FONTS.body4,
-                lineHeight: 18,
-              }}>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.{' '}
-            </Text>
+                ...FONTS.body2,
+              }}
+              placeholderTextColor={COLORS.black}
+              placeholder="Name"
+              autoCompleteType="off"
+              autoCorrect={false}
+            />
 
-            <TouchableOpacity
-              style={{marginTop: SIZES.base}}
-              onPress={() => console.log('Learn More')}>
-              <Text
-                style={{
-                  textDecorationLine: 'underline',
-                  color: COLORS.green,
-                  ...FONTS.h3,
-                }}>
-                Learn More
-              </Text>
-            </TouchableOpacity>
+           
+
+            <TextInput
+              style={{
+                height: 40,
+                borderBottomWidth: 1,
+                borderBottomColor: COLORS.white,
+                color: COLORS.white,
+                marginTop: SIZES.radius,
+                ...FONTS.body2,
+              }}
+              placeholderTextColor={COLORS.black}
+              placeholder="Phone"
+              autoCompleteType="off"
+              autoCorrect={false}
+            />
+
+            <TextInput
+              style={{
+                height: 40,
+                borderBottomWidth: 1,
+                borderBottomColor: COLORS.white,
+                color: COLORS.white,
+                marginTop: SIZES.radius,
+                ...FONTS.body2,
+              }}
+              placeholderTextColor={COLORS.black}
+              placeholder="Alternate Number"
+              autoCompleteType="off"
+              autoCorrect={false}
+            />
+
+            <TextInput
+              style={{
+                height: 40,
+                borderBottomWidth: 1,
+                borderBottomColor: COLORS.white,
+                color: COLORS.white,
+                marginTop: SIZES.radius,
+                ...FONTS.body2,
+              }}
+              placeholderTextColor={COLORS.black}
+              placeholder="Princple Amount"
+              autoCompleteType="off"
+              autoCorrect={false}
+            />
+            <TextInput
+              style={{
+                height: 40,
+                borderBottomWidth: 1,
+                borderBottomColor: COLORS.white,
+                color: COLORS.white,
+                marginTop: SIZES.radius,
+                ...FONTS.body2,
+              }}
+              placeholderTextColor={COLORS.black}
+              placeholder="Rate Of Interest"
+              autoCompleteType="off"
+              autoCorrect={false}
+            />
+
+            
+
+            <TextInput
+              style={{
+                height: 40,
+                borderBottomWidth: 1,
+                borderBottomColor: COLORS.white,
+                color: COLORS.white,
+                marginTop: SIZES.radius,
+                ...FONTS.body2,
+              }}
+              placeholderTextColor={COLORS.black}
+              placeholder="Type of Intrest"
+              autoCompleteType="off"
+              autoCorrect={false}
+            />
           </View>
         </View>
       </ScrollView>
+      <View
+        style={{
+          flexDirection: 'row',
+          position: 'relative',
+          padding: SIZES.padding,
+          justifyContent: 'space-between',
+          alignContent: 'space-between',
+        }}>
+        <Text
+          style={{
+            color: COLORS.black,
+            marginLeft: SIZES.padding,
+            ...FONTS.body2,
+          }}>
+          Cancel
+        </Text>
+        <Text
+          style={{
+            color: COLORS.black,
+            marginRight: SIZES.padding,
+            ...FONTS.body2,
+          }}>
+          Save
+        </Text>
+      </View>
     </SafeAreaView>
   );
 };

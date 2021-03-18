@@ -180,9 +180,9 @@ const Home = ({ navigation }) => {
             lineHeight: 18,
           }}
         >
-          {" "}
+          
           It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout.{" "}
+          readable content of a page when looking at its layout.
         </Text>
 
         <TouchableOpacity
@@ -217,6 +217,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     paddingBottom: 130,
+    backgroundColor: COLORS.white,
   },
   shadow: {
     shadowColor: "#000",

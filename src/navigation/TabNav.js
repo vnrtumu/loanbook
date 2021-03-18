@@ -5,15 +5,28 @@ import {
   BottomTabBar,
 } from "@react-navigation/bottom-tabs";
 
-import { Home, CreateContact } from "../screens";
+import { Home, CreateContact, Settings, Portfolio, DetailScreen } from "../screens";
 import { COLORS, FONTS, icons } from "../constants";
 import StackNav from './StackNav'
 
+import {createStackNavigator} from '@react-navigation/stack';
 
+const Stack = createStackNavigator();
 
 import LinearGradient from "react-native-linear-gradient";
 
 const Tab = createBottomTabNavigator();
+
+const PortfolioStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={'Home'}>
+      <Stack.Screen name="Portfolio" component={Portfolio} />
+      <Stack.Screen name="Detail" component={DetailScreen} />
+    </Stack.Navigator>
+  );
+};
+
+
 
 const TabBarCustomButton = ({ children, onPress }) => {
   return (
@@ -82,7 +95,7 @@ const TabNav = () => {
       />
       <Tab.Screen
         name="Portfolio"
-        component={Home}
+        component={PortfolioStack}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={{ alignItems: "center", justifyContent: "center" }}>
@@ -154,7 +167,7 @@ const TabNav = () => {
       />
       <Tab.Screen
         name="Settings"
-        component={Home}
+        component={Settings}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={{ alignItems: "center", justifyContent: "center" }}>

@@ -3,5 +3,6 @@ import TransactionHistory from "./TransactionHistory";
 import HeaderBar from './HeaderBar';
 import CurrencyLabel from './CurrencyLabel';
 import TextButton from './TextButton';
+import Contact from './Contact';
 
-export { PriceAlert, TransactionHistory, HeaderBar, CurrencyLabel, TextButton };
+export { PriceAlert, TransactionHistory, HeaderBar, CurrencyLabel, TextButton, Contact };
