@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   TextInput,
-  Button,
+  Button, Platform
 } from 'react-native';
 import {dummyData, COLORS, SIZES, FONTS, icons, images} from '../constants';
 
@@ -27,6 +27,7 @@ const Portfolio = ({ navigation })  => {
         style={{
           paddingHorizontal: SIZES.padding,
           flexDirection: 'row',
+          marginTop: Platform.OS === 'ios' ? 0 :  SIZES.padding
         }}>
         <View
           styl={{

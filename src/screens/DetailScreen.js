@@ -8,7 +8,7 @@ import {
   StyleSheet,
   ScrollView,
   ImageBackground,
-  TouchableOpacity,
+  TouchableOpacity, Platform
 } from 'react-native';
 
 import {dummyData, COLORS, SIZES, FONTS, icons, images} from '../constants';
@@ -21,7 +21,7 @@ const DetailScreen = ({navigation}) => {
 
   function renderHeader() {
     return (
-      <View style={{width: '100%', height: 230, ...styles.shadow}}>
+      <View style={{width: '100%', height: Platform.OS === 'ios' ? 230 : 200, ...styles.shadow}}>
         <ImageBackground
           source={images.banner}
           resizeMode="cover"
@@ -32,7 +32,7 @@ const DetailScreen = ({navigation}) => {
           {/* Header Section  */}
           <View
             style={{
-              marginTop: SIZES.padding * 2,
+              marginTop: Platform.OS === 'ios' ? SIZES.padding * 2:  SIZES.padding,
               width: '100%',
               alignItems: 'flex-start',
               paddingHorizontal: SIZES.padding,
@@ -43,7 +43,8 @@ const DetailScreen = ({navigation}) => {
               <Image
                 source={icons.back_arrow}
                 resizeMode="contain"
-                style={{flex: 1}}
+                style={{flex: 1, tintColor: COLORS.white}}
+                
               />
             </TouchableOpacity>
           </View>

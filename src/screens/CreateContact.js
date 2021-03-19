@@ -32,6 +32,8 @@ const CreateContact = () => {
         style={{
           paddingHorizontal: SIZES.padding,
           flexDirection: 'row',
+          marginTop: Platform.OS === 'ios' ? 0 :  SIZES.padding
+
         }}>
         <View
           styl={{

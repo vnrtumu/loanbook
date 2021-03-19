@@ -20,11 +20,13 @@ import {dummyData, COLORS, SIZES, FONTS, icons, images} from '../constants';
 
 const Settings = ({route}) => {
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white, }}>
       <View
         style={{
           paddingHorizontal: SIZES.padding,
           flexDirection: 'row',
+          marginTop: Platform.OS === 'ios' ? 0 :  SIZES.padding
+
         }}>
         <View
           styl={{

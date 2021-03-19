@@ -8,7 +8,7 @@ import {
   FlatList,
   Image,
   ImageBackground,
-  LogBox
+  LogBox, Platform
 } from "react-native";
 
 import { dummyData, COLORS, SIZES, FONTS, icons, images } from "../constants";
@@ -83,7 +83,7 @@ const Home = ({ navigation }) => {
           {/* Header Section  */}
           <View
             style={{
-              marginTop: SIZES.padding * 2,
+              marginTop: Platform.OS === 'ios' ? SIZES.padding * 2 :  SIZES.padding,
               width: "100%",
               alignItems: "flex-end",
               paddingHorizontal: SIZES.padding,
@@ -217,7 +217,6 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     paddingBottom: 130,
-    backgroundColor: COLORS.white,
   },
   shadow: {
     shadowColor: "#000",
