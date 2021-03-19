@@ -23,6 +23,15 @@ const settings = require('../assets/icons/settings.png');
 const star = require('../assets/icons/star2.png');
 const transaction = require('../assets/icons/transaction.png');
 const camera = require('../assets/icons/camera.png');
+const call = require('../assets/icons/call.png');
+const mail = require('../assets/icons/mail.png');
+const chat = require('../assets/icons/chat.png');
+const edit = require('../assets/icons/edit.png');
+const feedback = require('../assets/icons/feedback.png');
+const group = require('../assets/icons/group.png');
+const logout = require('../assets/icons/logout.png');
+
+
 
 
 export default {
@@ -48,5 +57,5 @@ export default {
   settings,
   star,
   transaction,
-  camera
+  camera, mail, call, chat, edit, feedback, group,logout
 };

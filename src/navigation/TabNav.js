@@ -139,13 +139,13 @@ const TabNav = () => {
         }}
       />
       <Tab.Screen
-        name="Prices"
+        name="Chat"
         component={Home}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <Image
-                source={icons.line_graph}
+                source={icons.chat}
                 resizeMode="contain"
                 style={{
                   width: 30,
