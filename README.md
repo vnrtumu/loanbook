@@ -26,7 +26,7 @@
 
 
 <p align="center">
-  <img width="200" height="350" src="loanbook.gif" alt="cli output"/>
+  <img width="200" height="400" src="loanbook.gif" alt="cli output"/>
 </p>
 
 
