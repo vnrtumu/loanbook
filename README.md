@@ -11,7 +11,8 @@ fillnally run `react-native run-android`
 
 ## FOR IOS:
 
-clean the existing build with cmd `cd ios && xcodebuild clean`.
+clean the existing build with cmd 
+    `cd ios && xcodebuild clean`
 Then install all the packages with cmd `npm install`
 now do `pod install` in the same ios folder
 fillnally run `react-native run-ios`
