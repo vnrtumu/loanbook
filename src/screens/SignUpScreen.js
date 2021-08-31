@@ -26,7 +26,7 @@ const SignUpScreen = ({navigation}) => {
     confirm_secureTextEntry: true,
   });
 
-  const textInputChange = (val) => {
+  const textInputChange = val => {
     if (val.length !== 0) {
       setData({
         ...data,
@@ -42,14 +42,14 @@ const SignUpScreen = ({navigation}) => {
     }
   };
 
-  const handlePasswordChange = (val) => {
+  const handlePasswordChange = val => {
     setData({
       ...data,
       password: val,
     });
   };
 
-  const handleConfirmPasswordChange = (val) => {
+  const handleConfirmPasswordChange = val => {
     setData({
       ...data,
       confirm_password: val,
@@ -103,7 +103,7 @@ const SignUpScreen = ({navigation}) => {
             placeholder="Your Username"
             style={styles.textInput}
             autoCapitalize="none"
-            onChangeText={(val) => textInputChange(val)}
+            onChangeText={val => textInputChange(val)}
           />
           {data.check_textInputChange ? (
             <Animatable.View animation="bounceIn">
@@ -144,7 +144,7 @@ const SignUpScreen = ({navigation}) => {
             secureTextEntry={data.secureTextEntry ? true : false}
             style={styles.textInput}
             autoCapitalize="none"
-            onChangeText={(val) => handlePasswordChange(val)}
+            onChangeText={val => handlePasswordChange(val)}
           />
           <TouchableOpacity onPress={updateSecureTextEntry}>
             {data.secureTextEntry ? (
@@ -187,7 +187,7 @@ const SignUpScreen = ({navigation}) => {
             secureTextEntry={data.confirm_secureTextEntry ? true : false}
             style={styles.textInput}
             autoCapitalize="none"
-            onChangeText={(val) => handleConfirmPasswordChange(val)}
+            onChangeText={val => handleConfirmPasswordChange(val)}
           />
           <TouchableOpacity onPress={updateConfirmSecureTextEntry}>
             {data.secureTextEntry ? (
@@ -276,6 +276,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     paddingHorizontal: 20,
     paddingBottom: 50,
+    height: '22%',
   },
   footer: {
     flex: 3,

@@ -10,7 +10,7 @@ import {
   StyleSheet,
   StatusBar,
   Touchable,
-  Image
+  Image,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
@@ -18,7 +18,6 @@ import LinearGradient from 'react-native-linear-gradient';
 // import { AuthContext } from '../components/context';
 
 import {COLORS, icons} from '../constants/tabConstants';
-
 
 const SignInScreen = ({navigation}) => {
   const [data, setData] = React.useState({
@@ -30,13 +29,13 @@ const SignInScreen = ({navigation}) => {
 
   // const { signIn } = React.useContext(AuthContext);
 
-  const textInputChange = (val) => {
+  const textInputChange = val => {
     if (val.length !== 0) {
       setData({
         ...data,
         username: val,
         check_textInputChange: true,
-      }); 
+      });
     } else {
       setData({
         ...data,
@@ -46,7 +45,7 @@ const SignInScreen = ({navigation}) => {
     }
   };
 
-  const handlePasswordChange = (val) => {
+  const handlePasswordChange = val => {
     setData({
       ...data,
       password: val,
@@ -70,14 +69,14 @@ const SignInScreen = ({navigation}) => {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
-              source={icons.leftArrow}
-              resizeMode="contain"
-              style={{
-                width: 20,
-                height: 20,
-                tintColor: "#fff",
-              }}
-            />
+            source={icons.leftArrow}
+            resizeMode="contain"
+            style={{
+              width: 20,
+              height: 20,
+              tintColor: '#fff',
+            }}
+          />
         </TouchableOpacity>
         <Text style={styles.text_header}>Welcome back,</Text>
       </View>
@@ -85,31 +84,31 @@ const SignInScreen = ({navigation}) => {
         <Text style={styles.text_footer}>Username</Text>
         <View style={styles.action}>
           <Image
-              source={icons.user}
-              resizeMode="contain"
-              style={{
-                width: 20,
-                height: 20,
-                tintColor: "#05375a",
-              }}
-            />
+            source={icons.user}
+            resizeMode="contain"
+            style={{
+              width: 20,
+              height: 20,
+              tintColor: '#05375a',
+            }}
+          />
           <TextInput
             placeholder="Your Username"
             style={styles.textInput}
             autoCapitalize="none"
-            onChangeText={(val) => textInputChange(val)}
+            onChangeText={val => textInputChange(val)}
           />
           {data.check_textInputChange ? (
             <Animatable.View animation="bounceIn">
               <Image
-              source={icons.checked}
-              resizeMode="contain"
-              style={{
-                width: 20,
-                height: 20,
-                tintColor: "green",
-              }}
-            />
+                source={icons.checked}
+                resizeMode="contain"
+                style={{
+                  width: 20,
+                  height: 20,
+                  tintColor: 'green',
+                }}
+              />
             </Animatable.View>
           ) : null}
         </View>
@@ -125,27 +124,34 @@ const SignInScreen = ({navigation}) => {
         </Text>
         <View style={styles.action}>
           <Image
-              source={icons.lock}
-              resizeMode="contain"
-              style={{
-                width: 20,
-                height: 20,
-                tintColor: "#05375a",
-              }}
-            />
+            source={icons.lock}
+            resizeMode="contain"
+            style={{
+              width: 20,
+              height: 20,
+              tintColor: '#05375a',
+            }}
+          />
           <TextInput
             placeholder="Your Password"
             secureTextEntry={data.secureTextEntry ? true : false}
             style={styles.textInput}
             autoCapitalize="none"
-            onChangeText={(val) => handlePasswordChange(val)}
+            onChangeText={val => handlePasswordChange(val)}
           />
           <TouchableOpacity onPress={updateSecureTextEntry}>
             {data.secureTextEntry ? (
-              <Image  source={icons.visibility} resizeMode="contain" style={{ width: 25, height: 25, tintColor: "grey" }} />
+              <Image
+                source={icons.visibility}
+                resizeMode="contain"
+                style={{width: 25, height: 25, tintColor: 'grey'}}
+              />
             ) : (
-              <Image  source={icons.eye} resizeMode="contain" style={{ width: 25, height: 25, tintColor: "grey" }} />
-
+              <Image
+                source={icons.eye}
+                resizeMode="contain"
+                style={{width: 25, height: 25, tintColor: 'grey'}}
+              />
             )}
           </TouchableOpacity>
         </View>
