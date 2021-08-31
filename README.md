@@ -24,13 +24,9 @@
 
 `readme-md-generator` is able to read your environment (package.json, git config...) to suggest you default answers during the `README.md` creation process:
 
-<p align="center">
-
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/XHECZDy_ctg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
 
 <p align="center">
-  <img width="700" src="loanbook.gif" alt="cli output"/>
+  <img width="300" height="300" src="loanbook.gif" alt="cli output"/>
 </p>
 
 
