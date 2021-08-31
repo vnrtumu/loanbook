@@ -22,6 +22,10 @@ This is a demo project developed with few screens from dribble.com
   <img width="200" height="450" src="loanbook.gif" alt="cli output"/>
 </p>
 
+## Replacement for vector icons
+In this demo app i used flaticons for all the icons we can the color of icons with style `tinitColor: <color name>`
+
+
 ## All Screen Screeshots
 
 
